@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-import Profile from './components/Profile';
-import Album from './components/Album';
 import Song from './components/Song';
+import SearchPage from './components/SearchPage';
 
 import './App.css';
 
@@ -36,15 +35,13 @@ function App() {
       <div className='App'>
         <a href={LOGIN_LINK}>Login</a>
         <br />
-        {/* <Link to='/profile'>Profile</Link> */}
         <br />
-        <Song token={token} id='6aBUnkXuCEQQHAlTokv9or' />
-        {/* <Album token={token} id='7rSZXXHHvIhF4yUFdaOCy9' /> */}
+        <SearchPage token={token} />
+        {/* <Song token={token} id='6aBUnkXuCEQQHAlTokv9or' /> */}
       </div>
       <Routes>
         <Route exact path='/' element={<Home />}></Route>
         <Route path='/home' element={<Home />} />
-        <Route path='/profile' element={<Profile token={token} />}></Route>
       </Routes>
     </Router>
   );
