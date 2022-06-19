@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Album from './components/Album';
+import Song from './components/Song';
 
 import './App.css';
 
@@ -35,8 +36,9 @@ function App() {
       <div className='App'>
         <a href={LOGIN_LINK}>Login</a>
         <br />
-        <Link to='/profile'>Profile</Link>
+        {/* <Link to='/profile'>Profile</Link> */}
         <br />
+        <Song token={token} id='6aBUnkXuCEQQHAlTokv9or' />
         {/* <Album token={token} id='7rSZXXHHvIhF4yUFdaOCy9' /> */}
       </div>
       <Routes>
