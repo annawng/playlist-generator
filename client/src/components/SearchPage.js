@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SearchBar from './SearchBar';
-import Song from './Song';
+import Results from './Results';
 
 function SearchPage(props) {
   const [results, setResults] = useState('');
@@ -14,12 +14,11 @@ function SearchPage(props) {
         }}
         clear={() => setResults('')}
       />
-      {results && <Song token={props.token} song={results} />}
+      {results && <Results results={results} />}
     </section>
   );
 }
 
-// TODO: display all results, not just items[0]
 function getResults(token, searchQuery, setResults) {
   const BASE_URI = 'https://api.spotify.com/v1';
   const headers = {
@@ -33,9 +32,7 @@ function getResults(token, searchQuery, setResults) {
     headers: headers,
   })
     .then((response) => response.json())
-    .then((json) => {
-      setResults(json['tracks']['items'][0]);
-    })
+    .then((json) => setResults(json['tracks']['items']))
     .catch((err) => console.log(err));
 }
 

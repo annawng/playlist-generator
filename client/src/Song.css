@@ -1,0 +1,21 @@
+.song {
+  border: 1px solid black;
+  padding: 20px;
+  display: flex;
+  min-width: fit-content;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.song img {
+  width: 50px;
+}
+
+.song p {
+  margin: 0;
+  margin-left: 10px;
+}
+
+#name {
+  font-weight: bold;
+}
