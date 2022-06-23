@@ -1,7 +1,8 @@
 import '../Song.css';
 
 function Song(props) {
-  const { album, artists, name } = props.song;
+  const { song, handleOnClick } = props;
+  const { album, artists, name, id } = song;
   let artist = artists[0].name;
   for (let i = 1; i < artists.length; i++) {
     artist += `, ${artists[i].name}`;
@@ -9,7 +10,7 @@ function Song(props) {
   const image = album.images[0].url;
 
   return (
-    <div className='song'>
+    <div className='song' onClick={() => handleOnClick(id)}>
       <img src={image} alt={`Album art for ${name}`} />
       <div>
         <p id='name'>{name}</p>

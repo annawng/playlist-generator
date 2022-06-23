@@ -1,9 +1,9 @@
 import Song from './Song.js';
 
 function Results(props) {
-  const { results } = props;
-  const songs = results.map((result, index) => (
-    <Song song={result} key={index} />
+  const { results, handleOnClick } = props;
+  const songs = results.map((song, index) => (
+    <Song song={song} key={index} handleOnClick={(id) => handleOnClick(id)} />
   ));
 
   return (
