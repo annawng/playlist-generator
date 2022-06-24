@@ -12,6 +12,34 @@ const redirect_uri = 'http://localhost:8888/callback';
 
 const app = express();
 
+app.get('/', function (req, res) {
+  const authOptions = {
+    url: 'https://accounts.spotify.com/api/token',
+    headers: {
+      Authorization:
+        'Basic ' +
+        Buffer.from(client_id + ':' + client_secret).toString('base64'),
+    },
+    form: {
+      grant_type: 'client_credentials',
+    },
+    json: true,
+  };
+
+  request.post(authOptions, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      const token = body.access_token;
+      res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+      res.redirect(
+        'http://localhost:3000/#' +
+          new URLSearchParams({
+            access_token: token,
+          }).toString()
+      );
+    }
+  });
+});
+
 app.get('/callback', function (req, res) {
   const code = req.query.code || null;
   const state = req.query.state || null;
@@ -44,12 +72,6 @@ app.get('/callback', function (req, res) {
       if (!error && response.statusCode === 200) {
         const access_token = body.access_token,
           refresh_token = body.refresh_token;
-
-        const options = {
-          url: 'https://api.spotify.com/v1/me',
-          headers: { Authorization: 'Bearer ' + access_token },
-          json: true,
-        };
 
         res.redirect(
           'http://localhost:3000/#' +

@@ -26,6 +26,8 @@ function App() {
         .find((elem) => elem.startsWith('access_token'))
         .split('=')[1];
       setToken(token);
+    } else {
+      window.location.href = 'http://localhost:8888/';
     }
   }, []);
 
