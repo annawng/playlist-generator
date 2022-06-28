@@ -1,4 +1,4 @@
-import '../Song.css';
+import '../css/Song.css';
 
 function Song(props) {
   const { song, handleOnClick } = props;

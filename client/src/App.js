@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
 import SearchPage from './components/SearchPage';
 
-import './App.css';
+import './css/App.css';
 
 function App() {
   const [token, setToken] = useState('');
@@ -32,18 +30,12 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className='App'>
-        <a href={LOGIN_LINK}>Login</a>
-        <br />
-        <br />
-        <SearchPage token={token} />
-      </div>
-      <Routes>
-        <Route exact path='/' element={<Home />}></Route>
-        <Route path='/home' element={<Home />} />
-      </Routes>
-    </Router>
+    <div className='App'>
+      <a href={LOGIN_LINK}>Login</a>
+      <h1>Playlist Generator</h1>
+      <h2>Select a song and get recommendations.</h2>
+      <SearchPage token={token} />
+    </div>
   );
 }
 

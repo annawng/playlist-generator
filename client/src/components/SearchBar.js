@@ -1,3 +1,5 @@
+import '../css/SearchBar.css';
+
 import { useState, useEffect } from 'react';
 function SearchBar(props) {
   const { search, clear } = props;
@@ -18,7 +20,7 @@ function SearchBar(props) {
   }, [search, text]);
 
   return (
-    <div>
+    <div id='search-bar'>
       <input
         type='text'
         placeholder='Search for a song'
@@ -32,7 +34,7 @@ function SearchBar(props) {
           search(text);
         }}
       >
-        Submit
+        Search
       </button>
       <button
         onClick={() => {

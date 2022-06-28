@@ -17,7 +17,10 @@ function SearchPage(props) {
             setResults('');
           }
         }}
-        clear={() => setResults('')}
+        clear={() => {
+          setResults('');
+          setRecommendations('');
+        }}
       />
       {results && (
         <Results

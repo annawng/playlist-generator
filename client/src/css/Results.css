@@ -1,0 +1,31 @@
+#results {
+  max-height: 500px;
+  overflow-y: auto;
+  box-shadow: rgba(122, 129, 135, 0.479) 0px 8px 24px;
+  border-radius: 20px;
+}
+
+#results::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+#results::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin: 15px;
+}
+
+/* Handle */
+#results::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(117, 180, 252, 0.8);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+#results::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(117, 180, 252, 0.4);
+}
+
+#results .song {
+  cursor: pointer;
+}
