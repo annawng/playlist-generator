@@ -1,3 +1,14 @@
 body {
-  margin: 20px 100px;
+  margin: 20px auto;
+  width: 960px;
+}
+
+.app__header {
+  height: 75vh;
+}
+
+.app__header h1 {
+  font-size: 100px;
+  padding-top: 400px;
+  margin: 0px;
 }

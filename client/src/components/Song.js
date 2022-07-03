@@ -13,8 +13,8 @@ function Song(props) {
     <div className='song' onClick={() => handleOnClick(id)}>
       <img src={image} alt={`Album art for ${name}`} />
       <div>
-        <p id='name'>{name}</p>
-        <p id='artist'>{artist}</p>
+        <p className='song__name'>{name}</p>
+        <p className='song__artist'>{artist}</p>
       </div>
     </div>
   );

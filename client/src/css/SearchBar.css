@@ -1,15 +1,15 @@
-#search-bar {
+.search-bar {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
-#search-bar input {
+.search-bar input {
   flex-grow: 1;
   font-size: 20px;
   padding: 5px;
 }
 
-#search-bar button {
+.search-bar button {
   text-transform: uppercase;
   margin-left: 5px;
 }

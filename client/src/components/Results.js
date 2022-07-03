@@ -9,12 +9,11 @@ function Results(props) {
   ));
 
   return (
-    <section>
-      {/* <h1>Results</h1> */}
+    <section className='results'>
       {results.length === 0 ? (
         <p>No songs found</p>
       ) : (
-        <div id='results'>{songs}</div>
+        <div className='results__songs'>{songs}</div>
       )}
     </section>
   );

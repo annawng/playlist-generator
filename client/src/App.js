@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import SearchPage from './components/SearchPage';
+import RecommendationPage from './components/RecommendationPage';
 
 import './css/App.css';
 
 function App() {
   const [token, setToken] = useState('');
+  const [selected, setSelected] = useState('');
 
   const CLIENT_ID = 'e0d4309aea4e4591a6a533ba32c1c836';
   const REDIRECT_URI = 'http://localhost:8888/callback';
@@ -30,11 +32,17 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
+    <div className='app'>
       <a href={LOGIN_LINK}>Login</a>
-      <h1>Playlist Generator</h1>
-      <h2>Select a song and get recommendations.</h2>
-      <SearchPage token={token} />
+      <section className='app__header'>
+        <h1>Playlist Generator</h1>
+        <h2>Select a song and get recommendations.</h2>
+      </section>
+      <SearchPage
+        token={token}
+        handleOnClick={(selected) => setSelected(selected)}
+      />
+      {selected && <RecommendationPage token={token} selected={selected} />}
     </div>
   );
 }
