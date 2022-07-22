@@ -22,7 +22,7 @@ function SearchBar(props) {
   return (
     <div className='search-bar'>
       <input
-        type='text'
+        type='search'
         placeholder='Search for a song'
         onChange={(evt) => {
           setText(evt.target.value);

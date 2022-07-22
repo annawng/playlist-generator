@@ -1,11 +1,14 @@
+.results {
+  font-size: 0.707rem;
+}
+
 .results .song {
   cursor: pointer;
   padding: 20px;
-  margin-bottom: 10px;
 }
 
 .results__songs {
-  max-height: 600px;
+  max-height: 400px;
   overflow-y: auto;
   box-shadow: rgba(122, 129, 135, 0.479) 0px 8px 24px;
   border-radius: 20px;

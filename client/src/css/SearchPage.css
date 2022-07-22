@@ -1,3 +1,8 @@
 .search-page {
-  margin: 100px 0px;
+  padding: 105px 175px 50px 175px;
+  min-height: 500px;
+}
+
+.search-page > p {
+  margin-bottom: 32px;
 }

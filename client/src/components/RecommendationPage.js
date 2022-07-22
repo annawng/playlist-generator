@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import Recommendations from './Recommendations';
 
+import '../css/RecommendationPage.css';
+
 function RecommendationPage(props) {
   const { token, selected } = props;
 
@@ -17,7 +19,7 @@ function RecommendationPage(props) {
 
       try {
         const response = await fetch(
-          BASE_URI + `/recommendations?seed_tracks=${selected}`,
+          BASE_URI + `/recommendations?seed_tracks=${selected.id}`,
           {
             method: 'GET',
             headers: headers,
@@ -34,8 +36,13 @@ function RecommendationPage(props) {
   }, [token, selected]);
 
   return (
-    <section>
-      {recommendations && <Recommendations recommendations={recommendations} />}
+    <section className='recommendation-page'>
+      {recommendations && (
+        <Recommendations
+          recommendations={recommendations}
+          selected={selected}
+        />
+      )}
     </section>
   );
 }

@@ -5,7 +5,11 @@ import '../css/Results.css';
 function Results(props) {
   const { results, handleOnClick } = props;
   const songs = results.map((song, index) => (
-    <Song song={song} key={index} handleOnClick={(id) => handleOnClick(id)} />
+    <Song
+      song={song}
+      key={index}
+      handleOnClick={(selected) => handleOnClick(selected)}
+    />
   ));
 
   return (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import HomePage from './components/HomePage';
 import SearchPage from './components/SearchPage';
 import RecommendationPage from './components/RecommendationPage';
 
@@ -33,11 +34,8 @@ function App() {
 
   return (
     <div className='app'>
-      <a href={LOGIN_LINK}>Login</a>
-      <section className='app__header'>
-        <h1>Playlist Generator</h1>
-        <h2>Select a song and get recommendations.</h2>
-      </section>
+      {/*<a href={LOGIN_LINK}>Login</a> */}
+      <HomePage />
       <SearchPage
         token={token}
         handleOnClick={(selected) => setSelected(selected)}

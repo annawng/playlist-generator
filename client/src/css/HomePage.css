@@ -1,0 +1,40 @@
+.home-page {
+  height: 100vh;
+  padding: 0px 175px;
+  background-color: #003049;
+}
+
+.home-page button {
+  width: 144px;
+  padding: 16px;
+  border: 2px solid #fdf0d5;
+  border-radius: 8px;
+  color: #fdf0d5;
+  background-color: transparent;
+  cursor: pointer;
+  letter-spacing: 0.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-page h1 {
+  margin-bottom: 16px;
+}
+
+.home-page p {
+  font-size: 1.414rem;
+  margin-bottom: 128px;
+}
+
+.home-page h1,
+.home-page p {
+  color: #fdf0d5;
+}
+
+.home-page__heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: inherit;
+}
