@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchBar from './SearchBar';
 import Results from './Results';
 
@@ -6,6 +6,18 @@ import '../css/SearchPage.css';
 
 function SearchPage(props) {
   const [results, setResults] = useState('');
+
+  useEffect(() => {
+    if (results.length !== 0) {
+      document
+        .querySelector('.search-bar input')
+        .classList.add('results-visible');
+    } else {
+      document
+        .querySelector('.search-bar input')
+        .classList.remove('results-visible');
+    }
+  }, [results.length]);
 
   return (
     <section className='search-page'>
