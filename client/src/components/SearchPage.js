@@ -19,10 +19,6 @@ function SearchPage(props) {
             setResults('');
           }
         }}
-        clear={() => {
-          setResults('');
-          props.handleOnClick('');
-        }}
       />
       {results && (
         <Results
