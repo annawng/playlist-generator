@@ -11,10 +11,9 @@ function Recommendations(props) {
 
   return (
     <section className='recommendations'>
-      <h2>Recommendations</h2>
-      <p>
-        for {name} by {artist}
-      </p>
+      <h3>
+        Similar to {name} by {artist}
+      </h3>
       <div className='recommendations__songs'>
         {recommendations.length === 0 ? <p>No songs found</p> : songs}
       </div>

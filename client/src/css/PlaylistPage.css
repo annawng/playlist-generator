@@ -1,0 +1,17 @@
+.playlist-page {
+  padding: 105px 175px;
+}
+
+.playlist-page h2 {
+  margin-bottom: 56px;
+}
+
+.playlist-page__heading {
+  margin-bottom: 128px;
+}
+
+.playlist-page__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
+}

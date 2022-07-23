@@ -37,12 +37,21 @@ function RecommendationPage(props) {
 
   return (
     <section className='recommendation-page'>
-      {recommendations && (
-        <Recommendations
-          recommendations={recommendations}
-          selected={selected}
-        />
-      )}
+      <div className='recommendation-page__heading'>
+        <h4>Step Two</h4>
+        <p>
+          Check out the recommendations and add the songs you like to your
+          playlist.
+        </p>
+      </div>
+      <div className='recommendation-page__recommendations'>
+        {recommendations && (
+          <Recommendations
+            recommendations={recommendations}
+            selected={selected}
+          />
+        )}
+      </div>
     </section>
   );
 }

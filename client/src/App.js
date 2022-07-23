@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import HomePage from './components/HomePage';
 import SearchPage from './components/SearchPage';
 import RecommendationPage from './components/RecommendationPage';
+import PlaylistPage from './components/PlaylistPage';
 
 import './css/App.css';
 
@@ -41,6 +42,7 @@ function App() {
         handleOnClick={(selected) => setSelected(selected)}
       />
       {selected && <RecommendationPage token={token} selected={selected} />}
+      {selected && <PlaylistPage />}
     </div>
   );
 }

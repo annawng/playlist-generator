@@ -1,3 +1,7 @@
-.recommendation-page {
-  background-color: #669bbc;
+.recommendation-page__recommendations {
+  background-color: #eeeeee;
+}
+
+.recommendation-page__heading {
+  padding: 105px 175px;
 }

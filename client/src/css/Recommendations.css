@@ -5,46 +5,57 @@
   color: #003049;
 }
 
-.recommendations h2 {
-  text-align: center;
-  font-size: 50px;
-  margin: 0px;
-}
-
-.recommendations p {
-  text-align: center;
+.recommendations h3 {
+  margin-bottom: 64px;
 }
 
 .recommendations > p {
-  font-size: 18px;
   margin-top: 0px;
   margin-bottom: 50px;
 }
 
 .recommendations__songs p {
-  font-size: 14px;
   margin: 0px;
-  max-width: 160px;
+  max-width: 320px;
 }
 
 .recommendations__songs {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  overflow-x: scroll;
 }
 
 .recommendations__songs .song {
   display: flex;
   flex-direction: column;
-  background-color: #fdf0d5;
-  border-radius: 4%;
+  background-color: #ffffff;
+  border-radius: 8px;
   margin: 10px 0px;
-  padding: 20px;
+  padding: 24px;
+  text-align: center;
+}
+
+.recommendations__songs .song p {
+  font-size: 0.707rem;
 }
 
 .recommendations__songs .song img {
-  width: 160px;
-  margin-bottom: 10px;
+  width: 320px;
+  margin-bottom: 16px;
+}
+
+.recommendations__songs .song div {
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.recommendations__songs .song p:first-child {
+  font-size: 1.125rem;
+  margin-bottom: 4px;
+  text-align: center;
 }

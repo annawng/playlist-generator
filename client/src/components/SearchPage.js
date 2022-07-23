@@ -21,7 +21,7 @@ function SearchPage(props) {
 
   return (
     <section className='search-page'>
-      <h3>Step One</h3>
+      <h4>Step One</h4>
       <p>Find a song you want your recommendations to be based on.</p>
       <SearchBar
         search={(text) => {
