@@ -5,13 +5,29 @@
   color: #003049;
 }
 
-.recommendations h3 {
-  margin-bottom: 64px;
-}
-
 .recommendations > p {
   margin-top: 0px;
   margin-bottom: 50px;
+}
+
+.recommendations__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.recommendations__heading h3 {
+  max-width: 1000px;
+}
+
+.recommendations__heading button {
+  height: 56px;
+  width: 240px;
+  font-size: 1.125rem;
+  border: 1px solid black;
+  border-radius: 100px;
+  cursor: pointer;
 }
 
 .recommendations__songs p {

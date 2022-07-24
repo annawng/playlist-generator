@@ -9,6 +9,7 @@ import './css/App.css';
 function App() {
   const [token, setToken] = useState('');
   const [selected, setSelected] = useState('');
+  const [playlist, setPlaylist] = useState('');
 
   // const CLIENT_ID = 'e0d4309aea4e4591a6a533ba32c1c836';
   // const REDIRECT_URI = 'http://localhost:8888/callback';
@@ -41,8 +42,14 @@ function App() {
         token={token}
         handleOnClick={(selected) => setSelected(selected)}
       />
-      {selected && <RecommendationPage token={token} selected={selected} />}
-      {selected && <PlaylistPage />}
+      {selected && (
+        <RecommendationPage
+          token={token}
+          selected={selected}
+          handleOnClick={(playlist) => setPlaylist(playlist)}
+        />
+      )}
+      {selected && <PlaylistPage playlist={playlist} />}
     </div>
   );
 }

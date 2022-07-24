@@ -1,6 +1,10 @@
+import Playlist from './Playlist';
+
 import '../css/PlaylistPage.css';
 
 function PlaylistPage(props) {
+  const { playlist } = props;
+
   return (
     <section className='playlist-page'>
       <div className='playlist-page__heading'>
@@ -8,6 +12,7 @@ function PlaylistPage(props) {
         <p>Export your new playlist to Spotify.</p>
       </div>
       <h2>Your Playlist</h2>
+      {playlist && <Playlist playlist={playlist} />}
       <div className='playlist-page__buttons'>
         <button>Export to Spotify</button>
         <button>Back to search</button>
