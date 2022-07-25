@@ -1,15 +1,16 @@
 import '../css/SearchBar.css';
 
 function SearchBar(props) {
-  const { search } = props;
+  const { resultsVisible, search } = props;
 
   return (
     <div className='search-bar'>
       <input
+        className={`${resultsVisible}`}
         type='search'
         placeholder='Search for a song'
-        onChange={(evt) => {
-          search(evt.target.value);
+        onChange={(e) => {
+          search(e.target.value);
         }}
       />
     </div>

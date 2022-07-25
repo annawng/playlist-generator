@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import HomePage from './components/HomePage';
 import SearchPage from './components/SearchPage';
 import RecommendationPage from './components/RecommendationPage';
@@ -10,6 +10,8 @@ function App() {
   const [token, setToken] = useState('');
   const [selected, setSelected] = useState('');
   const [playlist, setPlaylist] = useState('');
+
+  const searchPageRef = useRef(null);
 
   // const CLIENT_ID = 'e0d4309aea4e4591a6a533ba32c1c836';
   // const REDIRECT_URI = 'http://localhost:8888/callback';
@@ -37,19 +39,39 @@ function App() {
   return (
     <div className='app'>
       {/*<a href={LOGIN_LINK}>Login</a> */}
-      <HomePage />
+      <HomePage
+        handleOnClick={() =>
+          searchPageRef.current.scrollIntoView({ behavior: 'smooth' })
+        }
+      />
       <SearchPage
+        ref={searchPageRef}
         token={token}
-        handleOnClick={(selected) => setSelected(selected)}
+        handleOnClick={(selected) => {
+          setSelected(selected);
+          setPlaylist('');
+        }}
       />
       {selected && (
         <RecommendationPage
           token={token}
           selected={selected}
-          handleOnClick={(playlist) => setPlaylist(playlist)}
+          addToPlaylist={(song) => {
+            setPlaylist([...playlist, song]);
+          }}
+          handleOnClick={(playlist) => {
+            setPlaylist(playlist);
+          }}
         />
       )}
-      {selected && <PlaylistPage playlist={playlist} />}
+      {playlist && (
+        <PlaylistPage
+          playlist={playlist}
+          handleOnClick={() =>
+            searchPageRef.current.scrollIntoView({ behavior: 'smooth' })
+          }
+        />
+      )}
     </div>
   );
 }

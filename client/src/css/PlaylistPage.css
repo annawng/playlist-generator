@@ -15,3 +15,24 @@
   justify-content: space-between;
   margin-top: 64px;
 }
+
+.playlist-page__buttons button {
+  background-color: transparent;
+  font-size: 1.125rem;
+  padding: 16px 32px;
+  border: 1px solid black;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.playlist-page__buttons button:first-child {
+  color: #ffffff;
+  background-color: #159643;
+  border-color: #159643;
+  display: flex;
+  align-items: center;
+}
+
+.playlist-page__buttons svg {
+  padding-right: 16px;
+}

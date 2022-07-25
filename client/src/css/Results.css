@@ -13,7 +13,8 @@
 }
 
 .results__songs {
-  max-height: 400px;
+  max-height: 500px;
+  width: inherit;
   overflow-y: scroll;
   /* box-shadow: rgba(122, 129, 135, 0.479) 0px 8px 24px; */
   border: 1px solid #d9d9d9;
@@ -22,4 +23,9 @@
 
 .results__songs::-webkit-scrollbar {
   overflow: hidden;
+  width: 0;
+}
+
+.results__songs .hover-state {
+  background-color: #d9d9d9;
 }

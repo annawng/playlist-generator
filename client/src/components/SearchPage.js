@@ -1,29 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import SearchBar from './SearchBar';
 import Results from './Results';
 
 import '../css/SearchPage.css';
 
-function SearchPage(props) {
+function SearchPage(props, ref) {
   const [results, setResults] = useState('');
+  const [resultsVisible, setResultsVisible] = useState('');
 
   useEffect(() => {
-    if (results.length !== 0) {
-      document
-        .querySelector('.search-bar input')
-        .classList.add('results-visible');
-    } else {
-      document
-        .querySelector('.search-bar input')
-        .classList.remove('results-visible');
-    }
+    results.length !== 0
+      ? setResultsVisible('results-visible')
+      : setResultsVisible('');
   }, [results.length]);
 
   return (
-    <section className='search-page'>
+    <section className='search-page' ref={ref}>
       <h4>Step One</h4>
       <p>Find a song you want your recommendations to be based on.</p>
       <SearchBar
+        resultsVisible={resultsVisible}
         search={(text) => {
           if (text) {
             getResults(props.token, text, setResults);
@@ -60,4 +56,4 @@ function getResults(token, searchQuery, setResults) {
     .catch((err) => console.log(err));
 }
 
-export default SearchPage;
+export default forwardRef(SearchPage);

@@ -3,10 +3,15 @@ import Song from './Song.js';
 import '../css/Recommendations.css';
 
 function Recommendations(props) {
-  const { recommendations, selected, handleOnClick } = props;
+  const { recommendations, selected, addToPlaylist, handleOnClick } = props;
   const { name, artist } = selected;
   const songs = recommendations.map((song, index) => (
-    <Song song={song} key={index} />
+    <Song
+      song={song}
+      key={index}
+      button={'Add to playlist'}
+      addSong={() => addToPlaylist(song)}
+    />
   ));
 
   return (

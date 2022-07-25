@@ -1,12 +1,14 @@
 import '../css/HomePage.css';
 
 function HomePage(props) {
+  const { handleOnClick } = props;
+
   return (
     <section className='home-page'>
       <div className='home-page__heading'>
         <h1>Spotify Playlist Generator</h1>
         <p>Select a song and get recommendations.</p>
-        <button>
+        <button onClick={handleOnClick}>
           Get Started
           <svg
             xmlns='http://www.w3.org/2000/svg'
