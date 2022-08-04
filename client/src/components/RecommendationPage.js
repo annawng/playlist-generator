@@ -4,36 +4,27 @@ import Recommendations from './Recommendations';
 import '../css/RecommendationPage.css';
 
 function RecommendationPage(props) {
-  const { token, selected, addToPlaylist, handleOnClick } = props;
+  const { selected, addToPlaylist, handleOnClick } = props;
 
   const [recommendations, setRecommendations] = useState('');
 
   useEffect(() => {
     const getRecommendations = async () => {
-      const BASE_URI = 'https://api.spotify.com/v1';
-      const headers = {
-        'Content-type': 'application/json',
-        Authorization: `Bearer ${token}`,
-        Host: 'api.spotify.com',
-      };
-
       try {
-        const response = await fetch(
-          BASE_URI + `/recommendations?seed_tracks=${selected.id}`,
-          {
-            method: 'GET',
-            headers: headers,
-          }
-        );
+        const response = await fetch(`/recommendations?track=${selected.id}`, {
+          headers: {
+            accepts: 'application/json',
+          },
+        });
         const json = await response.json();
-        setRecommendations(json.tracks);
+        setRecommendations(json);
       } catch (err) {
         console.log(err);
       }
     };
 
     getRecommendations();
-  }, [token, selected]);
+  }, [selected]);
 
   return (
     <section className='recommendation-page'>

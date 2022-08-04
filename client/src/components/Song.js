@@ -6,8 +6,8 @@ function Song(props) {
 
   const { song, handleOnClick, button, addSong } = props;
   const { album, artists, name, id } = song;
-  let artist = artists[0].name;
-  const image = album.images[0].url;
+  let artist = artists[0] ? artists[0].name : '';
+  const image = album.images[0] ? album.images[0].url : '';
 
   return (
     <div

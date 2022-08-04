@@ -22,38 +22,31 @@ function SearchPage(props, ref) {
         resultsVisible={resultsVisible}
         search={(text) => {
           if (text) {
-            getResults(props.token, text, setResults);
+            getResults(text, setResults);
           } else {
             setResults('');
           }
         }}
       />
       {results && (
-        <Results
-          results={results}
-          token={props.token}
-          handleOnClick={props.handleOnClick}
-        />
+        <Results results={results} handleOnClick={props.handleOnClick} />
       )}
     </section>
   );
 }
 
-function getResults(token, searchQuery, setResults) {
-  const BASE_URI = 'https://api.spotify.com/v1';
-  const headers = {
-    'Content-type': 'application/json',
-    Authorization: `Bearer ${token}`,
-    Host: 'api.spotify.com',
-  };
-
-  fetch(BASE_URI + `/search?q=${searchQuery}&type=track`, {
-    method: 'GET',
-    headers: headers,
-  })
-    .then((response) => response.json())
-    .then((json) => setResults(json.tracks.items))
-    .catch((err) => console.log(err));
+async function getResults(searchQuery, setResults) {
+  try {
+    const response = await fetch(`/search?q=${searchQuery}`, {
+      headers: {
+        accepts: 'application/json',
+      },
+    });
+    const json = await response.json();
+    setResults(json);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export default forwardRef(SearchPage);

@@ -19,8 +19,6 @@ function Playlist(props) {
       return `${min}:${sec}`;
     };
 
-    console.log(playlist);
-
     const rows = playlist.map((song, index) => ({
       index: index + 1,
       name: song.name,

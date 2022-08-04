@@ -2,8 +2,22 @@ import Playlist from './Playlist';
 
 import '../css/PlaylistPage.css';
 
+const clientId = 'e0d4309aea4e4591a6a533ba32c1c836';
+const redirectUri = 'http://localhost:8888/callback';
+const authEndpoint = 'https://accounts.spotify.com/authorize';
+const responseType = 'code';
+const scope = 'playlist-modify-private';
+const state = generateRandomString(16);
+const loginLink =
+  `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}` +
+  `&response_type=${responseType}&state=${state}&scope=${scope}`;
+
 function PlaylistPage(props) {
   const { playlist, handleOnClick } = props;
+
+  const exportPlaylist = () => {
+    window.location.href = loginLink;
+  };
 
   return (
     <section className='playlist-page'>
@@ -14,7 +28,7 @@ function PlaylistPage(props) {
       <h2>Your Playlist</h2>
       {playlist && <Playlist playlist={playlist} />}
       <div className='playlist-page__buttons'>
-        <button>
+        <button onClick={exportPlaylist}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
@@ -31,6 +45,17 @@ function PlaylistPage(props) {
       </div>
     </section>
   );
+}
+
+function generateRandomString(length) {
+  let text = '';
+  const possible =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  for (let i = 0; i < length; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
 }
 
 export default PlaylistPage;
