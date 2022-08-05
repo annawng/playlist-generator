@@ -2,7 +2,6 @@ require('dotenv').config({ path: '../.env' });
 
 const SpotifyWebApi = require('spotify-web-api-node');
 const express = require('express');
-const fetch = require('cross-fetch');
 
 const router = express.Router();
 

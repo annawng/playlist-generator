@@ -17,16 +17,6 @@ function PlaylistPage(props) {
 
   const exportPlaylist = async () => {
     window.location.href = loginLink;
-    // try {
-    //   console.log(':(');
-    //   await fetch(`/export`, {
-    //     headers: {
-    //       accepts: 'application/json',
-    //     },
-    //   });
-    // } catch (err) {
-    //   console.log(err);
-    // }
   };
 
   return (
