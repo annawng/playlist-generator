@@ -9,6 +9,13 @@ function RecommendationPage(props) {
   const [recommendations, setRecommendations] = useState('');
 
   useEffect(() => {
+    const recs = window.sessionStorage.getItem('recommendations');
+    if (recs) {
+      setRecommendations(JSON.parse(recs));
+    }
+  }, []);
+
+  useEffect(() => {
     const getRecommendations = async () => {
       try {
         const response = await fetch(`/recommendations?track=${selected.id}`, {
@@ -18,6 +25,7 @@ function RecommendationPage(props) {
         });
         const json = await response.json();
         setRecommendations(json);
+        window.sessionStorage.setItem('recommendations', JSON.stringify(json));
       } catch (err) {
         console.log(err);
       }

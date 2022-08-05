@@ -12,8 +12,54 @@ function App() {
 
   const searchPageRef = useRef(null);
 
+  const updatePlaylist = async (playlist) => {
+    setPlaylist(playlist);
+    window.sessionStorage.setItem('playlist', JSON.stringify(playlist));
+    if (playlist) {
+      const uris = playlist.map((song) => song.uri);
+      await fetch('/playlist', {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({ playlist: uris }),
+      });
+    }
+  };
+
   useEffect(() => {
-    fetch('http://localhost:8888/');
+    const sel = window.sessionStorage.getItem('selected');
+    if (sel) {
+      setSelected(JSON.parse(sel));
+    }
+
+    const pl = window.sessionStorage.getItem('playlist');
+    if (pl) {
+      setPlaylist(JSON.parse(pl));
+    }
+
+    try {
+      fetch('http://localhost:8888/');
+    } catch (err) {
+      console.log(err);
+    }
+
+    // TODO: figure out how to make this work
+    const scrollPosition = window.sessionStorage.getItem('scroll-position');
+    if (scrollPosition) {
+      window.scrollTo(0, scrollPosition);
+    }
+
+    const onBeforeUnload = () => {
+      window.sessionStorage.setItem('scroll-position', window.pageYOffset);
+    };
+
+    window.addEventListener('beforeunload', onBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', onBeforeUnload);
+    };
   }, []);
 
   return (
@@ -27,17 +73,18 @@ function App() {
         ref={searchPageRef}
         handleOnClick={(selected) => {
           setSelected(selected);
-          setPlaylist('');
+          window.sessionStorage.setItem('selected', JSON.stringify(selected));
+          updatePlaylist('');
         }}
       />
       {selected && (
         <RecommendationPage
           selected={selected}
           addToPlaylist={(song) => {
-            setPlaylist([...playlist, song]);
+            updatePlaylist([...playlist, song]);
           }}
           handleOnClick={(playlist) => {
-            setPlaylist(playlist);
+            updatePlaylist(playlist);
           }}
         />
       )}

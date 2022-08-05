@@ -2,6 +2,7 @@ require('dotenv').config({ path: '../.env' });
 
 const SpotifyWebApi = require('spotify-web-api-node');
 const express = require('express');
+const fetch = require('cross-fetch');
 
 const router = express.Router();
 
@@ -15,6 +16,12 @@ const spotifyApi = new SpotifyWebApi({
   redirectUri: redirectUri,
 });
 
+let playlist;
+
+router.post('/playlist', function (req, res) {
+  playlist = req.body.playlist;
+});
+
 router.get('/', function (req, res) {
   spotifyApi.clientCredentialsGrant().then(
     function (data) {
@@ -23,26 +30,6 @@ router.get('/', function (req, res) {
     function (err) {
       console.log('Something went wrong when retrieving an access token', err);
     }
-  );
-});
-
-router.get('/login', function (req, res) {
-  const state = generateRandomString(16);
-  const scope = [
-    'user-read-email',
-    'user-read-private',
-    'playlist-modify-private',
-    'playlist-modify-public',
-  ];
-  res.redirect(
-    'https://accounts.spotify.com/authorize?' +
-      JSON.stringify({
-        response_type: 'code',
-        client_id: spotifyApi.getClientId,
-        scope: scope,
-        redirect_uri: spotifyApi.redirectUri,
-        state: state,
-      })
   );
 });
 
@@ -104,18 +91,7 @@ router.get('/recommendations', function (req, res) {
 async function exportPlaylist(req, res) {
   const playlistUri = await createPlaylist();
   addToPlaylist(playlistUri.split(':')[2]);
-  // ideally don't refresh page when returning
   res.redirect('http://localhost:3000');
-}
-
-function generateRandomString(length) {
-  let text = '';
-  const possible =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  for (let i = 0; i < length; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-  return text;
 }
 
 const createPlaylist = async () => {
@@ -130,11 +106,8 @@ const createPlaylist = async () => {
 };
 
 const addToPlaylist = async (playlistUri) => {
-  // const uris = playlist.map((track) => track.uri); // need to get this from PlaylistPage.js
-
-  const uris = ['spotify:track:4cOdK2wGLETKBW3PvgPWqT'];
   try {
-    await spotifyApi.addTracksToPlaylist(playlistUri, uris);
+    await spotifyApi.addTracksToPlaylist(playlistUri, playlist);
   } catch (err) {
     console.log(err);
   }

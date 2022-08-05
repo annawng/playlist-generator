@@ -9,10 +9,18 @@ function SearchPage(props, ref) {
   const [resultsVisible, setResultsVisible] = useState('');
 
   useEffect(() => {
+    const storedResults = window.sessionStorage.getItem('results');
+    if (storedResults) {
+      setResults(JSON.parse(storedResults));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.sessionStorage.setItem('results', JSON.stringify(results));
     results.length !== 0
       ? setResultsVisible('results-visible')
       : setResultsVisible('');
-  }, [results.length]);
+  }, [results]);
 
   return (
     <section className='search-page' ref={ref}>
