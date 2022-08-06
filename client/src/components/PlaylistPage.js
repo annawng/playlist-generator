@@ -28,7 +28,7 @@ function PlaylistPage(props) {
       <h2>Your Playlist</h2>
       {playlist && <Playlist playlist={playlist} />}
       <div className='playlist-page__buttons'>
-        <button onClick={exportPlaylist}>
+        <button className='button-primary' onClick={exportPlaylist}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'
@@ -41,7 +41,9 @@ function PlaylistPage(props) {
           </svg>
           Export to Spotify
         </button>
-        <button onClick={handleOnClick}>Back to search</button>
+        <button className='button-secondary' onClick={handleOnClick}>
+          Back to search
+        </button>
       </div>
     </section>
   );

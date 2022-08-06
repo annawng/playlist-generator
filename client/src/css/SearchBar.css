@@ -6,7 +6,7 @@
 .search-bar input {
   font-size: 1rem;
   flex-grow: 1;
-  border: 1px solid #d9d9d9;
+  border: 1px solid var(--clr-darker-gray);
   border-radius: 8px;
   padding: 16px 16px 16px 56px;
   background: transparent

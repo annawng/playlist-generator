@@ -16,8 +16,7 @@
   max-height: 500px;
   width: inherit;
   overflow-y: scroll;
-  /* box-shadow: rgba(122, 129, 135, 0.479) 0px 8px 24px; */
-  border: 1px solid #d9d9d9;
+  border: 1px solid var(--clr-darker-gray);
   border-radius: 0 0 16px 16px;
 }
 
@@ -26,6 +25,10 @@
   width: 0;
 }
 
-.results__songs .hover-state {
-  background-color: #d9d9d9;
+.results__songs .song {
+  transition: 0.3s;
+}
+
+.results__songs .song:hover {
+  background-color: var(--clr-gray);
 }

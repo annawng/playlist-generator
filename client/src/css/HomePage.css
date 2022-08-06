@@ -1,21 +1,30 @@
 .home-page {
   height: 100vh;
   padding: 0px 175px;
-  background-color: #003049;
+  background-color: var(--clr-primary);
+}
+
+.home-page h1,
+.home-page p,
+.home-page button {
+  color: var(--clr-off-white);
 }
 
 .home-page button {
   width: 144px;
   padding: 16px;
-  border: 2px solid #fdf0d5;
+  border: 2px solid var(--clr-off-white-transparent);
   border-radius: 8px;
-  color: #fdf0d5;
   background-color: transparent;
   cursor: pointer;
   letter-spacing: 0.05rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.home-page button:hover {
+  border-color: var(--clr-off-white);
 }
 
 .home-page h1 {
@@ -25,11 +34,6 @@
 .home-page p {
   font-size: 1.414rem;
   margin-bottom: 128px;
-}
-
-.home-page h1,
-.home-page p {
-  color: #fdf0d5;
 }
 
 .home-page__heading {

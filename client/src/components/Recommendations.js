@@ -20,7 +20,10 @@ function Recommendations(props) {
         <h3>
           Similar to {name} by {artist}
         </h3>
-        <button onClick={() => handleOnClick(recommendations)}>
+        <button
+          className='button-primary'
+          onClick={() => handleOnClick(recommendations)}
+        >
           Add all to playlist
         </button>
       </div>

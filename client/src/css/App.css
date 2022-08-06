@@ -1,3 +1,5 @@
+/* general */
+
 body {
   margin: 0px auto;
 }
@@ -30,4 +32,43 @@ h3 {
 h4 {
   font-size: 0.707rem;
   font-weight: 700;
+  color: var(--clr-primary);
+  margin-bottom: 5px;
+}
+
+/* button */
+
+button {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.button-primary,
+.button-secondary {
+  font-size: 1.125rem;
+  border-radius: 100px;
+  padding: 16px 32px;
+}
+
+.button-primary {
+  color: var(--clr-white);
+  background-color: var(--clr-button-primary);
+  border: none;
+  opacity: 0.8;
+}
+
+.button-primary:hover {
+  opacity: 1;
+}
+
+.button-secondary {
+  background-color: transparent;
+  margin-top: 16px;
+  border: 1px solid var(--clr-black);
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.button-secondary:hover {
+  background-color: var(--clr-button-secondary);
 }

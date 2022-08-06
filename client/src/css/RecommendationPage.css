@@ -1,5 +1,5 @@
 .recommendation-page__recommendations {
-  background-color: #eeeeee;
+  background-color: var(--clr-gray);
 }
 
 .recommendation-page__heading {

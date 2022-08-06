@@ -2,7 +2,7 @@
   width: 1280px;
   margin: auto;
   padding: 50px 0px;
-  color: #003049;
+  color: var(--clr-black);
 }
 
 .recommendations > p {
@@ -21,15 +21,6 @@
   max-width: 1000px;
 }
 
-.recommendations__heading button {
-  height: 56px;
-  width: 240px;
-  font-size: 1.125rem;
-  border: 1px solid black;
-  border-radius: 100px;
-  cursor: pointer;
-}
-
 .recommendations__songs p {
   margin: 0px;
   max-width: 320px;
@@ -44,20 +35,22 @@
   overflow-x: scroll;
 }
 
-.recommendations__songs div.hover-state button {
+.recommendations__songs div:hover button {
   display: block;
   background-color: transparent;
   margin-top: 16px;
-  border: 1px solid black;
-  border-radius: 100px;
-  cursor: pointer;
+  font-size: 0.707rem;
   padding: 8px 16px;
+}
+
+.recommendations__songs div:hover button:hover {
+  background-color: var(--clr-button-secondary);
 }
 
 .recommendations__songs .song {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: var(--clr-white);
   border-radius: 8px;
   margin: 10px 0px;
   padding: 24px;

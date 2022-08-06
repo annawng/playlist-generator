@@ -1,10 +1,8 @@
 .search-page {
-  /* padding: 105px 175px; */
-  /* min-height: 500px; */
   box-sizing: border-box;
   min-height: 100vh;
   padding: 105px 175px;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid var(--clr-darker-gray);
 }
 
 .search-page > p {

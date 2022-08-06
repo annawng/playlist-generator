@@ -13,5 +13,18 @@ code {
 }
 
 :root {
+  --clr-primary: rgb(42, 116, 151);
+
+  --clr-off-white: rgb(249, 245, 235);
+  --clr-off-white-transparent: rgba(249, 245, 235, 0.6);
+
+  --clr-white: rgb(255, 255, 255);
+  --clr-gray: rgb(238, 238, 238);
+  --clr-darker-gray: rgb(217, 217, 217);
+  --clr-black: rgb(20, 20, 20);
+
+  --clr-button-primary: rgb(33, 100, 37);
+  --clr-button-secondary: rgba(215, 215, 215, 0.8);
+
   font-size: 21px;
 }
