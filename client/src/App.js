@@ -12,6 +12,21 @@ function App() {
 
   const searchPageRef = useRef(null);
 
+  const updateSelected = async (selected) => {
+    setSelected(selected);
+    window.sessionStorage.setItem('selected', JSON.stringify(selected));
+    if (selected) {
+      await fetch('/selected', {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({ selected: selected }),
+      });
+    }
+  };
+
   const updatePlaylist = async (playlist) => {
     setPlaylist(playlist);
     window.sessionStorage.setItem('playlist', JSON.stringify(playlist));
@@ -72,8 +87,7 @@ function App() {
       <SearchPage
         ref={searchPageRef}
         handleOnClick={(selected) => {
-          setSelected(selected);
-          window.sessionStorage.setItem('selected', JSON.stringify(selected));
+          updateSelected(selected);
           updatePlaylist('');
         }}
       />

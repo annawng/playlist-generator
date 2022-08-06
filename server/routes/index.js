@@ -15,7 +15,11 @@ const spotifyApi = new SpotifyWebApi({
   redirectUri: redirectUri,
 });
 
-let playlist;
+let playlist, selected;
+
+router.post('/selected', function (req, res) {
+  selected = req.body.selected;
+});
 
 router.post('/playlist', function (req, res) {
   playlist = req.body.playlist;
@@ -95,9 +99,12 @@ async function exportPlaylist(req, res) {
 
 const createPlaylist = async () => {
   try {
-    const response = await spotifyApi.createPlaylist('Your Playlist', {
-      public: false,
-    });
+    const response = await spotifyApi.createPlaylist(
+      `Based on ${selected.name} by ${selected.artist}`,
+      {
+        public: false,
+      }
+    );
     return response.body.uri;
   } catch (err) {
     console.log(err);

@@ -9,9 +9,9 @@ function SearchPage(props, ref) {
   const [resultsVisible, setResultsVisible] = useState('');
 
   useEffect(() => {
-    const storedResults = window.sessionStorage.getItem('results');
-    if (storedResults) {
-      setResults(JSON.parse(storedResults));
+    const res = window.sessionStorage.getItem('results');
+    if (res) {
+      setResults(JSON.parse(res));
     }
   }, []);
 
