@@ -8,7 +8,7 @@ import './css/App.css';
 
 function App() {
   const [selected, setSelected] = useState('');
-  const [playlist, setPlaylist] = useState('');
+  const [playlist, setPlaylist] = useState([]);
 
   const searchPageRef = useRef(null);
 
@@ -30,17 +30,15 @@ function App() {
   const updatePlaylist = async (playlist) => {
     setPlaylist(playlist);
     window.sessionStorage.setItem('playlist', JSON.stringify(playlist));
-    if (playlist) {
-      const uris = playlist.map((song) => song.uri);
-      await fetch('/playlist', {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-        body: JSON.stringify({ playlist: uris }),
-      });
-    }
+    const uris = playlist.map((song) => song.uri);
+    await fetch('/playlist', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({ playlist: uris }),
+    });
   };
 
   useEffect(() => {
@@ -88,21 +86,25 @@ function App() {
         ref={searchPageRef}
         handleOnClick={(selected) => {
           updateSelected(selected);
-          updatePlaylist('');
+          updatePlaylist([]);
         }}
       />
       {selected && (
         <RecommendationPage
           selected={selected}
+          playlist={playlist}
           addToPlaylist={(song) => {
-            updatePlaylist([...playlist, song]);
+            const containsSong = playlist.find((obj) => obj.id === song.id);
+            containsSong
+              ? updatePlaylist(playlist.filter((obj) => obj.id !== song.id))
+              : updatePlaylist([...playlist, song]);
           }}
           handleOnClick={(playlist) => {
             updatePlaylist(playlist);
           }}
         />
       )}
-      {playlist && (
+      {playlist.length !== 0 && (
         <PlaylistPage
           playlist={playlist}
           handleOnClick={() =>

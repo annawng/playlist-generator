@@ -26,7 +26,7 @@ function PlaylistPage(props) {
         <p>Export your new playlist to Spotify.</p>
       </div>
       <h2>Your Playlist</h2>
-      {playlist && <Playlist playlist={playlist} />}
+      {<Playlist playlist={playlist} />}
       <div className='playlist-page__buttons'>
         <button className='button-primary' onClick={exportPlaylist}>
           <svg

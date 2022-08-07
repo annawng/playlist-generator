@@ -63,10 +63,7 @@ button {
 
 .button-secondary {
   background-color: transparent;
-  margin-top: 16px;
   border: 1px solid var(--clr-black);
-  border-radius: 100px;
-  cursor: pointer;
 }
 
 .button-secondary:hover {

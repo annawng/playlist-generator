@@ -3,16 +3,25 @@ import Song from './Song.js';
 import '../css/Recommendations.css';
 
 function Recommendations(props) {
-  const { recommendations, selected, addToPlaylist, handleOnClick } = props;
+  const { recommendations, selected, playlist, addToPlaylist, handleOnClick } =
+    props;
   const { name, artist } = selected;
   const songs = recommendations.map((song, index) => (
     <Song
       song={song}
       key={index}
-      button={'Add to playlist'}
+      button={containsSong(song) ? 'Remove from playlist' : 'Add to playlist'}
       addSong={() => addToPlaylist(song)}
     />
   ));
+
+  function containsAll() {
+    return playlist.length === recommendations.length;
+  }
+
+  function containsSong(song) {
+    return playlist.find((obj) => obj.id === song.id);
+  }
 
   return (
     <section className='recommendations'>
@@ -22,9 +31,11 @@ function Recommendations(props) {
         </h3>
         <button
           className='button-primary'
-          onClick={() => handleOnClick(recommendations)}
+          onClick={() => {
+            containsAll() ? handleOnClick([]) : handleOnClick(recommendations);
+          }}
         >
-          Add all to playlist
+          {containsAll() ? 'Remove all from playlist' : 'Add all to playlist'}
         </button>
       </div>
       <div className='recommendations__songs'>

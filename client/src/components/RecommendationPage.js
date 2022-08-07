@@ -4,7 +4,7 @@ import Recommendations from './Recommendations';
 import '../css/RecommendationPage.css';
 
 function RecommendationPage(props) {
-  const { selected, addToPlaylist, handleOnClick } = props;
+  const { selected, playlist, addToPlaylist, handleOnClick } = props;
 
   const [recommendations, setRecommendations] = useState('');
 
@@ -48,6 +48,7 @@ function RecommendationPage(props) {
           <Recommendations
             recommendations={recommendations}
             selected={selected}
+            playlist={playlist}
             addToPlaylist={addToPlaylist}
             handleOnClick={handleOnClick}
           />
