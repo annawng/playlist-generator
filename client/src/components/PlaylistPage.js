@@ -42,7 +42,7 @@ function PlaylistPage(props) {
           Export to Spotify
         </button>
         <button className='button-secondary' onClick={handleOnClick}>
-          Back to search
+          Back to Search
         </button>
       </div>
     </section>

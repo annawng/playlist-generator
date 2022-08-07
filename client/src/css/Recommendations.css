@@ -1,5 +1,4 @@
 .recommendations {
-  width: 1280px;
   margin: auto;
   padding: 50px 0px;
   color: var(--clr-black);
@@ -15,10 +14,14 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 64px;
+  max-width: 90%;
+  margin: auto;
+  gap: 48px;
+  margin-bottom: 32px;
 }
 
-.recommendations__heading h3 {
-  max-width: 1000px;
+.recommendations__heading button {
+  white-space: nowrap;
 }
 
 .recommendations__songs p {
@@ -33,6 +36,8 @@
   justify-content: space-between;
   gap: 20px;
   overflow-x: scroll;
+  max-width: 90%;
+  margin: auto;
 }
 
 .recommendations__songs div:hover button {
@@ -81,4 +86,84 @@
   font-size: 1.125rem;
   margin-bottom: 4px;
   text-align: center;
+}
+
+@media (max-width: 920px) {
+  .recommendations__heading h3 {
+    font-size: 1.5rem;
+  }
+  .recommendations__heading button {
+    font-size: 1rem;
+  }
+
+  .recommendations__songs .song img {
+    width: 240px;
+    margin-bottom: 16px;
+  }
+
+  .recommendations__songs .song div {
+    max-width: 240px;
+  }
+
+  .recommendations__songs .song p {
+    font-size: 0.707rem;
+  }
+
+  .recommendations__songs .song p:first-child {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+
+  .recommendations__songs div:hover button {
+    font-size: 0.6rem;
+    padding: 4px 8px;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .recommendations {
+    padding-block: 18px;
+  }
+
+  .recommendations__heading h3 {
+    font-size: 1rem;
+  }
+
+  .recommendations__heading {
+    margin-bottom: 24px;
+  }
+
+  .recommendations__heading button {
+    font-size: 0.707rem;
+    padding: 8px 16px;
+  }
+
+  .recommendations__heading {
+    gap: 16px;
+  }
+
+  .recommendations__songs .song img {
+    width: 180px;
+    margin-bottom: 16px;
+  }
+
+  .recommendations__songs .song div {
+    max-width: 180px;
+  }
+
+  .recommendations__songs .song p {
+    font-size: 0.6rem;
+  }
+
+  .recommendations__songs .song p:first-child {
+    font-size: 0.707rem;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+
+  .recommendations__songs div:hover button {
+    font-size: 0.5rem;
+  }
 }

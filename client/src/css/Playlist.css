@@ -1,0 +1,15 @@
+@media (max-width: 767px) {
+  .playlist th,
+  .playlist td {
+    font-size: 0.707rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .playlist th,
+  .playlist td {
+    font-size: 0.6rem;
+    padding: 4px;
+  }
+}

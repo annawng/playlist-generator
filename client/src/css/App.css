@@ -36,6 +36,12 @@ h4 {
   margin-bottom: 5px;
 }
 
+@media (max-width: 480px) {
+  p {
+    font-size: 0.707rem;
+  }
+}
+
 /* button */
 
 button {

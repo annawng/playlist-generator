@@ -18,9 +18,81 @@
 
 .playlist-page__buttons .button-primary {
   display: inline-flex;
+  justify-content: center;
   align-items: center;
 }
 
 .playlist-page__buttons svg {
   padding-right: 16px;
+}
+
+@media (max-width: 920px) {
+  .playlist-page {
+    padding-inline: 10%;
+  }
+
+  .playlist-page h2 {
+    font-size: 2.827rem;
+    margin-bottom: 24px;
+  }
+
+  .playlist-page__heading {
+    margin-bottom: 96px;
+  }
+
+  .playlist-page__buttons button {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .playlist-page {
+    padding-block: 64px;
+  }
+
+  .playlist-page h2 {
+    font-size: 1.777rem;
+    margin-bottom: 8px;
+  }
+
+  .playlist-page__heading {
+    margin-bottom: 32px;
+  }
+
+  .playlist-page__buttons {
+    margin-top: 24px;
+  }
+
+  .playlist-page__buttons button {
+    font-size: 0.707rem;
+    padding: 8px 16px;
+  }
+
+  .playlist-page__buttons svg {
+    padding-right: 8px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .playlist-page {
+    padding-block: 32px;
+  }
+
+  .playlist-page h2 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .playlist-page__buttons {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .playlist-page__buttons button {
+    margin: auto;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0.6rem;
+  }
 }

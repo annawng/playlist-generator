@@ -1,6 +1,6 @@
 .home-page {
   height: 100vh;
-  padding: 0px 175px;
+  padding-inline: 175px;
   background-color: var(--clr-primary);
 }
 
@@ -41,4 +41,42 @@
   flex-direction: column;
   justify-content: center;
   height: inherit;
+}
+
+@media (max-width: 920px) {
+  .home-page {
+    padding-inline: 10%;
+  }
+
+  .home-page h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .home-page {
+    height: fit-content;
+    padding-block: 64px;
+    padding-inline: 10%;
+  }
+  .home-page h1 {
+    font-size: 3rem;
+  }
+
+  .home-page p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page {
+    padding-block: 32px;
+  }
+
+  .home-page p {
+    margin-bottom: 64px;
+  }
+  .home-page h1 {
+    font-size: 1.5rem;
+  }
 }

@@ -3,10 +3,6 @@
   overflow: hidden;
 }
 
-.results > p {
-  margin-top: 16px;
-}
-
 .results .song {
   cursor: pointer;
   padding: 20px;
@@ -31,4 +27,22 @@
 
 .results__songs .song:hover {
   background-color: var(--clr-gray);
+}
+
+@media (max-width: 480px) {
+  .results img {
+    width: 32px;
+  }
+
+  .results .song {
+    padding: 10px;
+  }
+
+  .results p {
+    font-size: 0.6rem;
+  }
+
+  .results__songs {
+    max-height: 196px;
+  }
 }

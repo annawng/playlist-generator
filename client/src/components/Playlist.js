@@ -6,6 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
+import '../css/Playlist.css';
+
 function Playlist(props) {
   const { playlist } = props;
   const [rows, setRows] = useState('');
@@ -32,7 +34,7 @@ function Playlist(props) {
 
   return (
     rows && (
-      <TableContainer>
+      <TableContainer className='playlist'>
         <Table>
           <TableHead>
             <TableRow>

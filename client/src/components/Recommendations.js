@@ -10,7 +10,7 @@ function Recommendations(props) {
     <Song
       song={song}
       key={index}
-      button={containsSong(song) ? 'Remove from playlist' : 'Add to playlist'}
+      button={containsSong(song) ? 'Remove' : 'Add'}
       addSong={() => addToPlaylist(song)}
     />
   ));
@@ -35,7 +35,7 @@ function Recommendations(props) {
             containsAll() ? handleOnClick([]) : handleOnClick(recommendations);
           }}
         >
-          {containsAll() ? 'Remove all from playlist' : 'Add all to playlist'}
+          {containsAll() ? 'Remove All' : 'Add All'}
         </button>
       </div>
       <div className='recommendations__songs'>

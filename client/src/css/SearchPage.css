@@ -8,3 +8,22 @@
 .search-page > p {
   margin-bottom: 32px;
 }
+
+@media (max-width: 920px) {
+  .search-page {
+    padding-inline: 10%;
+  }
+}
+
+@media (max-width: 780px) {
+  .search-page {
+    padding-block: 64px;
+    min-height: 30vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-page {
+    padding-block: 32px;
+  }
+}
