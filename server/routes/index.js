@@ -8,6 +8,7 @@ const router = express.Router();
 const clientId = process.env.CLIENT_ID;
 const clientSecret = process.env.SECRET_KEY;
 const redirectUri = process.env.REDIRECT_URI;
+const siteUri = 'https://playlist-generator.netlify.app/';
 
 const spotifyApi = new SpotifyWebApi({
   clientId: clientId,
@@ -94,7 +95,7 @@ router.get('/recommendations', function (req, res) {
 async function exportPlaylist(req, res) {
   const playlistUri = await createPlaylist();
   addToPlaylist(playlistUri.split(':')[2]);
-  res.redirect('http://localhost:3000');
+  res.redirect(siteUri);
 }
 
 const createPlaylist = async () => {
