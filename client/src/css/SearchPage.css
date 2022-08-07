@@ -2,7 +2,6 @@
   box-sizing: border-box;
   min-height: 100vh;
   padding: 105px 175px;
-  border-bottom: 1px solid var(--clr-darker-gray);
 }
 
 .search-page > p {

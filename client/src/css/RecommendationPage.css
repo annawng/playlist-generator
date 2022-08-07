@@ -4,6 +4,7 @@
 
 .recommendation-page__heading {
   padding: 105px 175px;
+  border-top: 1px solid var(--clr-darker-gray);
 }
 
 @media (max-width: 920px) {

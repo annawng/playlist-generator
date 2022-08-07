@@ -14,7 +14,7 @@ function App() {
 
   const updateSelected = async (selected) => {
     setSelected(selected);
-    window.sessionStorage.setItem('selected', JSON.stringify(selected));
+    // window.sessionStorage.setItem('selected', JSON.stringify(selected));
     if (selected) {
       await fetch('/selected', {
         headers: {
@@ -29,7 +29,7 @@ function App() {
 
   const updatePlaylist = async (playlist) => {
     setPlaylist(playlist);
-    window.sessionStorage.setItem('playlist', JSON.stringify(playlist));
+    // window.sessionStorage.setItem('playlist', JSON.stringify(playlist));
     const uris = playlist.map((song) => song.uri);
     await fetch('/playlist', {
       headers: {
@@ -42,37 +42,25 @@ function App() {
   };
 
   useEffect(() => {
-    const sel = window.sessionStorage.getItem('selected');
-    if (sel) {
-      setSelected(JSON.parse(sel));
-    }
+    // const sel = window.sessionStorage.getItem('selected');
+    // if (sel) {
+    //   setSelected(JSON.parse(sel));
+    // }
 
-    const pl = window.sessionStorage.getItem('playlist');
-    if (pl) {
-      setPlaylist(JSON.parse(pl));
-    }
+    // const pl = window.sessionStorage.getItem('playlist');
+    // if (pl) {
+    //   setPlaylist(JSON.parse(pl));
+    // }
 
-    try {
-      fetch('http://localhost:8888/');
-    } catch (err) {
-      console.log(err);
-    }
-
-    // TODO: figure out how to make this work
-    const scrollPosition = window.sessionStorage.getItem('scroll-position');
-    if (scrollPosition) {
-      window.scrollTo(0, scrollPosition);
-    }
-
-    const onBeforeUnload = () => {
-      window.sessionStorage.setItem('scroll-position', window.pageYOffset);
+    const load = async () => {
+      try {
+        await fetch('/token');
+      } catch (err) {
+        console.log(err);
+      }
     };
 
-    window.addEventListener('beforeunload', onBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', onBeforeUnload);
-    };
+    load();
   }, []);
 
   return (

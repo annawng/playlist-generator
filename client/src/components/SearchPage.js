@@ -8,15 +8,15 @@ function SearchPage(props, ref) {
   const [results, setResults] = useState('');
   const [resultsVisible, setResultsVisible] = useState('');
 
-  useEffect(() => {
-    const res = window.sessionStorage.getItem('results');
-    if (res) {
-      setResults(JSON.parse(res));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const res = window.sessionStorage.getItem('results');
+  //   if (res) {
+  //     setResults(JSON.parse(res));
+  //   }
+  // }, []);
 
   useEffect(() => {
-    window.sessionStorage.setItem('results', JSON.stringify(results));
+    // window.sessionStorage.setItem('results', JSON.stringify(results));
     results.length !== 0
       ? setResultsVisible('results-visible')
       : setResultsVisible('');

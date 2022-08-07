@@ -25,7 +25,7 @@ router.post('/playlist', function (req, res) {
   playlist = req.body.playlist;
 });
 
-router.get('/', function (req, res) {
+router.get('/token', function (req, res) {
   spotifyApi.clientCredentialsGrant().then(
     function (data) {
       spotifyApi.setAccessToken(data.body['access_token']);
