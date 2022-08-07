@@ -8,6 +8,8 @@ function RecommendationPage(props) {
 
   const [recommendations, setRecommendations] = useState('');
 
+  const SERVER = 'https://generate-spotify-playlists.herokuapp.com';
+
   useEffect(() => {
     const recs = window.sessionStorage.getItem('recommendations');
     if (recs) {
@@ -18,11 +20,14 @@ function RecommendationPage(props) {
   useEffect(() => {
     const getRecommendations = async () => {
       try {
-        const response = await fetch(`/recommendations?track=${selected.id}`, {
-          headers: {
-            accepts: 'application/json',
-          },
-        });
+        const response = await fetch(
+          `${SERVER}/recommendations?track=${selected.id}`,
+          {
+            headers: {
+              accepts: 'application/json',
+            },
+          }
+        );
         const json = await response.json();
         setRecommendations(json);
         window.sessionStorage.setItem('recommendations', JSON.stringify(json));

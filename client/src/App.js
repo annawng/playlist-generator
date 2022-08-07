@@ -12,11 +12,13 @@ function App() {
 
   const searchPageRef = useRef(null);
 
+  const SERVER = 'https://generate-spotify-playlists.herokuapp.com';
+
   const updateSelected = async (selected) => {
     setSelected(selected);
     // window.sessionStorage.setItem('selected', JSON.stringify(selected));
     if (selected) {
-      await fetch('/selected', {
+      await fetch(`${SERVER}/selected`, {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -31,7 +33,7 @@ function App() {
     setPlaylist(playlist);
     // window.sessionStorage.setItem('playlist', JSON.stringify(playlist));
     const uris = playlist.map((song) => song.uri);
-    await fetch('/playlist', {
+    await fetch(`${SERVER}/playlist`, {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -54,7 +56,7 @@ function App() {
 
     const load = async () => {
       try {
-        await fetch('/token');
+        await fetch(`${SERVER}/token`);
       } catch (err) {
         console.log(err);
       }

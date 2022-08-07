@@ -44,8 +44,9 @@ function SearchPage(props, ref) {
 }
 
 async function getResults(searchQuery, setResults) {
+  const SERVER = 'https://generate-spotify-playlists.herokuapp.com';
   try {
-    const response = await fetch(`/search?q=${searchQuery}`, {
+    const response = await fetch(`${SERVER}/search?q=${searchQuery}`, {
       headers: {
         accepts: 'application/json',
       },
