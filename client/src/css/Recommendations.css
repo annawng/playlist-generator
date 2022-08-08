@@ -2,11 +2,18 @@
   margin: auto;
   padding: 50px 0px;
   color: var(--clr-black);
+  position: relative;
 }
 
 .recommendations > p {
   margin-top: 0px;
   margin-bottom: 50px;
+}
+
+.recommendations__spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }
 
 .recommendations__heading {
@@ -22,6 +29,13 @@
 
 .recommendations__heading button {
   white-space: nowrap;
+  transition: none;
+  visibility: hidden;
+}
+
+.recommendations__heading button.visible {
+  visibility: visible;
+  transition: 0.3s;
 }
 
 .recommendations__songs p {

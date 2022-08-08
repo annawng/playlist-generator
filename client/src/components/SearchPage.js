@@ -66,7 +66,7 @@ function SearchPage(props, ref) {
       <SearchBar
         resultsVisible={resultsVisible}
         search={(text) => {
-          if (text) {
+          if (text.trim()) {
             setQuery(text);
           } else {
             setResults('');

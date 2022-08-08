@@ -1,10 +1,11 @@
 import '../css/Song.css';
 
 function Song(props) {
-  const { song, handleOnClick, button, addSong } = props;
+  const { song, handleOnClick, button, addSong, onLoad, large } = props;
   const { album, artists, name, id } = song;
   let artist = artists[0] ? artists[0].name : '';
-  const image = album.images[0] ? album.images[0].url : '';
+  const imageSmall = album.images.at(-1) ? album.images.at(-1).url : '';
+  const imageLarge = album.images[0] ? album.images[0].url : '';
 
   return (
     <div
@@ -13,7 +14,11 @@ function Song(props) {
         handleOnClick && handleOnClick({ id: id, name: name, artist: artist })
       }
     >
-      <img src={image} alt={`Album art for ${name}`} />
+      <img
+        src={large ? imageLarge : imageSmall}
+        alt={`Album art for ${name}`}
+        onLoad={onLoad}
+      />
       <div>
         <p className='song__name'>{name}</p>
         <p className='song__artist'>{artist}</p>

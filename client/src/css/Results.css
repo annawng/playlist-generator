@@ -3,6 +3,10 @@
   overflow: hidden;
 }
 
+.results > p {
+  margin-top: 16px;
+}
+
 .results .song {
   cursor: pointer;
   padding: 20px;
