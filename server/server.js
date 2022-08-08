@@ -7,10 +7,11 @@ const index = require('./routes/index');
 const app = express();
 
 const port = process.env.PORT;
+const site = process.env.CLIENT_URI;
 
 app.use(
   cors({
-    origin: 'https://playlistgenerator.netlify.app',
+    origin: site,
   })
 );
 app.use(express.json());
