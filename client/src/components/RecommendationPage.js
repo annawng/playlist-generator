@@ -4,11 +4,9 @@ import Recommendations from './Recommendations';
 import '../css/RecommendationPage.css';
 
 function RecommendationPage(props) {
-  const { selected, playlist, addToPlaylist, handleOnClick } = props;
+  const { token, selected, playlist, addToPlaylist, handleOnClick } = props;
 
   const [recommendations, setRecommendations] = useState('');
-
-  const SERVER = 'https://generate-spotify-playlists.herokuapp.com';
 
   useEffect(() => {
     const recs = window.sessionStorage.getItem('recommendations');
@@ -19,25 +17,30 @@ function RecommendationPage(props) {
 
   useEffect(() => {
     const getRecommendations = async () => {
+      const BASE_URI = 'https://api.spotify.com/v1';
+      const headers = {
+        'Content-type': 'application/json',
+        Authorization: `Bearer ${token}`,
+        Host: 'api.spotify.com',
+      };
+
       try {
         const response = await fetch(
-          `${SERVER}/recommendations?track=${selected.id}`,
+          BASE_URI + `/recommendations?seed_tracks=${selected.id}`,
           {
-            headers: {
-              accepts: 'application/json',
-            },
+            method: 'GET',
+            headers: headers,
           }
         );
         const json = await response.json();
-        setRecommendations(json);
-        window.sessionStorage.setItem('recommendations', JSON.stringify(json));
+        setRecommendations(json.tracks);
       } catch (err) {
         console.log(err);
       }
     };
 
     getRecommendations();
-  }, [selected]);
+  }, [selected, token]);
 
   return (
     <section className='recommendation-page'>

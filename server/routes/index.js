@@ -30,6 +30,7 @@ router.get('/token', function (req, res) {
   spotifyApi.clientCredentialsGrant().then(
     function (data) {
       spotifyApi.setAccessToken(data.body['access_token']);
+      res.json({ token: data.body['access_token'] });
     },
     function (err) {
       console.log('Something went wrong when retrieving an access token', err);
@@ -64,30 +65,6 @@ router.get('/refresh_token', function (req, res) {
     },
     function (err) {
       console.log('Could not refresh access token', err);
-    }
-  );
-});
-
-router.get('/search', function (req, res) {
-  const query = req.query.q;
-  spotifyApi.searchTracks(query).then(
-    function (data) {
-      res.json(data.body.tracks.items);
-    },
-    function (err) {
-      console.error(err);
-    }
-  );
-});
-
-router.get('/recommendations', function (req, res) {
-  const track = req.query.track;
-  spotifyApi.getRecommendations({ seed_tracks: [track] }).then(
-    function (data) {
-      res.json(data.body.tracks);
-    },
-    function (err) {
-      console.error(err);
     }
   );
 });

@@ -5,6 +5,8 @@ import Results from './Results';
 import '../css/SearchPage.css';
 
 function SearchPage(props, ref) {
+  const { token, handleOnClick } = props;
+
   const [query, setQuery] = useState('');
   const [results, setResults] = useState('');
   const [resultsVisible, setResultsVisible] = useState('');
@@ -25,14 +27,37 @@ function SearchPage(props, ref) {
 
   // only search when user has stopped typing
   useEffect(() => {
+    async function getResults(searchQuery) {
+      const BASE_URI = 'https://api.spotify.com/v1';
+      const headers = {
+        'Content-type': 'application/json',
+        Authorization: `Bearer ${token}`,
+        Host: 'api.spotify.com',
+      };
+
+      try {
+        const res = await fetch(
+          BASE_URI + `/search?q=${searchQuery}&type=track`,
+          {
+            method: 'GET',
+            headers: headers,
+          }
+        );
+        const json = await res.json();
+        setResults(json.tracks.items);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
     let timer = setTimeout(() => {
       if (query) {
-        getResults(query, setResults);
+        getResults(query);
       }
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [query]);
+  }, [query, token]);
 
   return (
     <section className='search-page' ref={ref}>
@@ -48,26 +73,9 @@ function SearchPage(props, ref) {
           }
         }}
       />
-      {results && (
-        <Results results={results} handleOnClick={props.handleOnClick} />
-      )}
+      {results && <Results results={results} handleOnClick={handleOnClick} />}
     </section>
   );
-}
-
-async function getResults(searchQuery, setResults) {
-  const SERVER = 'https://generate-spotify-playlists.herokuapp.com';
-  try {
-    const response = await fetch(`${SERVER}/search?q=${searchQuery}`, {
-      headers: {
-        accepts: 'application/json',
-      },
-    });
-    const json = await response.json();
-    setResults(json);
-  } catch (err) {
-    console.log(err);
-  }
 }
 
 export default forwardRef(SearchPage);

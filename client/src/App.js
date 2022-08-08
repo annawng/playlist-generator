@@ -9,6 +9,7 @@ import './css/App.css';
 function App() {
   const [selected, setSelected] = useState('');
   const [playlist, setPlaylist] = useState([]);
+  const [token, setToken] = useState('');
 
   const searchPageRef = useRef(null);
 
@@ -56,7 +57,9 @@ function App() {
 
     const load = async () => {
       try {
-        await fetch(`${SERVER}/token`);
+        const res = await fetch(`${SERVER}/token`);
+        const json = await res.json();
+        setToken(json.token);
       } catch (err) {
         console.log(err);
       }
@@ -73,14 +76,16 @@ function App() {
         }
       />
       <SearchPage
-        ref={searchPageRef}
+        token={token}
         handleOnClick={(selected) => {
           updateSelected(selected);
           updatePlaylist([]);
         }}
+        ref={searchPageRef}
       />
       {selected && (
         <RecommendationPage
+          token={token}
           selected={selected}
           playlist={playlist}
           addToPlaylist={(song) => {
