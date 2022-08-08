@@ -5,6 +5,7 @@ import Results from './Results';
 import '../css/SearchPage.css';
 
 function SearchPage(props, ref) {
+  const [query, setQuery] = useState('');
   const [results, setResults] = useState('');
   const [resultsVisible, setResultsVisible] = useState('');
 
@@ -22,6 +23,17 @@ function SearchPage(props, ref) {
       : setResultsVisible('');
   }, [results]);
 
+  // only search when user has stopped typing
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      if (query) {
+        getResults(query, setResults);
+      }
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [query]);
+
   return (
     <section className='search-page' ref={ref}>
       <h4>Step One</h4>
@@ -30,7 +42,7 @@ function SearchPage(props, ref) {
         resultsVisible={resultsVisible}
         search={(text) => {
           if (text) {
-            getResults(text, setResults);
+            setQuery(text);
           } else {
             setResults('');
           }
