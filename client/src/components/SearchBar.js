@@ -7,7 +7,7 @@ function SearchBar(props) {
     <div className='search-bar'>
       <input
         className={`${resultsVisible}`}
-        type='search'
+        type='text'
         placeholder='Search for a song'
         onChange={(e) => {
           search(e.target.value);

@@ -66,6 +66,10 @@
   .home-page p {
     font-size: 1rem;
   }
+
+  .home-page button {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {

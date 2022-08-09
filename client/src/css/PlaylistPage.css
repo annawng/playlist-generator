@@ -22,6 +22,10 @@
   align-items: center;
 }
 
+.playlist-page__buttons .button-secondary {
+  color: var(--clr-black);
+}
+
 .playlist-page__buttons svg {
   padding-right: 16px;
 }
