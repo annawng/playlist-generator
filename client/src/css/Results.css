@@ -16,7 +16,7 @@
   max-height: 500px;
   width: inherit;
   overflow-y: scroll;
-  border: 1px solid var(--clr-darker-gray);
+  border-top: 1px solid var(--clr-primary);
   border-radius: 0 0 16px 16px;
 }
 
@@ -26,6 +26,7 @@
 }
 
 .results__songs .song {
+  background-color: var(--clr-off-white-transparent);
   transition: 0.3s;
 }
 
@@ -47,6 +48,6 @@
   }
 
   .results__songs {
-    max-height: 196px;
+    max-height: 348px;
   }
 }

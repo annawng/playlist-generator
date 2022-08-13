@@ -2,6 +2,7 @@
 
 body {
   margin: 0px auto;
+  background-color: var(--clr-primary);
 }
 
 h1,
@@ -11,13 +12,14 @@ h4,
 p,
 button,
 input {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Heebo', sans-serif;
   margin: 0px;
 }
 
 h1 {
   font-weight: 700;
   font-size: 5.653rem;
+  line-height: 1.25em;
 }
 
 h2 {
@@ -26,17 +28,30 @@ h2 {
 
 h3 {
   font-size: 1.777rem;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 h4 {
-  font-size: 0.707rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--clr-primary);
+  font-weight: 300;
+  color: var(--clr-accent);
   margin-bottom: 5px;
 }
 
+h4 + p {
+  font-size: 1.5rem;
+  color: var(--clr-secondary);
+}
+
+@media (max-width: 780px) {
+  h4 + p {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 480px) {
+  h4 + p,
   p {
     font-size: 0.707rem;
   }
@@ -57,21 +72,21 @@ button {
 }
 
 .button-primary {
-  color: var(--clr-white);
+  color: var(--clr-off-white);
   background-color: var(--clr-button-primary);
   border: none;
-  opacity: 0.8;
 }
 
 .button-primary:hover {
-  opacity: 1;
+  background-color: var(--clr-button-primary-hover);
 }
 
 .button-secondary {
   background-color: transparent;
-  border: 1px solid var(--clr-black);
+  color: var(--clr-off-white);
+  border: 2px solid var(--clr-button-secondary);
 }
 
 .button-secondary:hover {
-  background-color: var(--clr-button-secondary);
+  background-color: var(--clr-button-secondary-hover);
 }

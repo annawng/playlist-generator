@@ -4,6 +4,7 @@
 
 .playlist-page h2 {
   margin-bottom: 56px;
+  color: var(--clr-off-white);
 }
 
 .playlist-page__heading {
@@ -20,10 +21,6 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-}
-
-.playlist-page__buttons .button-secondary {
-  color: var(--clr-black);
 }
 
 .playlist-page__buttons svg {

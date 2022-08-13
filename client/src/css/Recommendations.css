@@ -1,7 +1,7 @@
 .recommendations {
   margin: auto;
   padding: 50px 0px;
-  color: var(--clr-black);
+  color: var(--clr-primary);
   position: relative;
 }
 
@@ -56,23 +56,29 @@
   margin: auto;
 }
 
+.recommendations__songs::-webkit-scrollbar {
+  overflow: hidden;
+}
+
 .recommendations__songs div:hover button {
   display: block;
   background-color: transparent;
-  margin-top: 16px;
+  margin-top: 8px;
   font-size: 0.707rem;
   padding: 8px 16px;
-  color: var(--clr-black);
+  color: var(--clr-primary);
+  border: 1px solid var(--clr-primary);
+  border-radius: 100px;
 }
 
 .recommendations__songs div:hover button:hover {
-  background-color: var(--clr-button-secondary);
+  background-color: var(--clr-button-secondary-hover);
 }
 
 .recommendations__songs .song {
   display: flex;
   flex-direction: column;
-  background-color: var(--clr-white);
+  background-color: var(--clr-off-white);
   border-radius: 8px;
   margin: 10px 0px;
   padding: 24px;
@@ -101,7 +107,7 @@
 
 .recommendations__songs .song p:first-child {
   font-size: 1.125rem;
-  margin-bottom: 4px;
+  margin-bottom: -4px;
   text-align: center;
 }
 
@@ -115,7 +121,6 @@
 
   .recommendations__songs .song img {
     width: 240px;
-    margin-bottom: 16px;
   }
 
   .recommendations__songs .song div {
@@ -128,14 +133,12 @@
 
   .recommendations__songs .song p:first-child {
     font-size: 1rem;
-    margin-bottom: 4px;
-    text-align: center;
   }
 
   .recommendations__songs div:hover button {
     font-size: 0.6rem;
     padding: 4px 8px;
-    margin-top: 8px;
+    margin-top: 4px;
   }
 }
 
@@ -163,7 +166,6 @@
 
   .recommendations__songs .song img {
     width: 180px;
-    margin-bottom: 16px;
   }
 
   .recommendations__songs .song div {
@@ -176,8 +178,6 @@
 
   .recommendations__songs .song p:first-child {
     font-size: 0.707rem;
-    margin-bottom: 4px;
-    text-align: center;
   }
 
   .recommendations__songs div:hover button {

@@ -23,11 +23,7 @@ function Song(props) {
         <p className='song__name'>{name}</p>
         <p className='song__artist'>{artist}</p>
       </div>
-      {button && (
-        <button className='button-secondary' onClick={addSong}>
-          {button}
-        </button>
-      )}
+      {button && <button onClick={addSong}>{button}</button>}
     </div>
   );
 }

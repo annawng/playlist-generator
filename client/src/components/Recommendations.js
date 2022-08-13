@@ -53,7 +53,7 @@ function Recommendations(props) {
       </div>
       <div className='recommendations__spinner'>
         <PuffLoader
-          color={'#2a7497'}
+          color={'#1E2129'}
           loading={loading}
           cssOverride={{ width: '70px', height: '70px' }}
         />

@@ -1,30 +1,16 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 :root {
-  --clr-primary: rgb(42, 116, 151);
+  --clr-primary: hsl(225, 15%, 14%);
+  --clr-secondary: hsl(215, 40%, 70%);
+  --clr-accent: hsl(233, 21%, 70%);
 
-  --clr-off-white: rgb(249, 245, 235);
-  --clr-off-white-transparent: rgba(249, 245, 235, 0.6);
+  --clr-off-white: hsl(200, 20%, 97%);
+  --clr-off-white-transparent: hsla(200, 20%, 97%, 0.8);
+  --clr-gray: hsl(215, 0%, 90%);
 
-  --clr-white: rgb(255, 255, 255);
-  --clr-gray: rgb(238, 238, 238);
-  --clr-darker-gray: rgb(217, 217, 217);
-  --clr-black: rgb(20, 20, 20);
-
-  --clr-button-primary: rgb(33, 100, 37);
-  --clr-button-secondary: rgba(215, 215, 215, 0.8);
+  --clr-button-primary: hsl(232, 20%, 49%);
+  --clr-button-primary-hover: hsl(232, 20%, 63%);
+  --clr-button-secondary: var(--clr-secondary);
+  --clr-button-secondary-hover: hsla(215, 0%, 70%, 0.2);
 
   font-size: 21px;
 }

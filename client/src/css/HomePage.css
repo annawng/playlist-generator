@@ -1,23 +1,26 @@
 .home-page {
   height: 100vh;
   padding-inline: 175px;
-  background-color: var(--clr-primary);
 }
 
-.home-page h1,
-.home-page p,
+.home-page h1 {
+  color: var(--clr-secondary);
+}
+
+.home-page p {
+  color: var(--clr-accent);
+  font-weight: 300;
+}
+
 .home-page button {
   color: var(--clr-off-white);
-}
-
-.home-page button {
   width: 144px;
   padding: 16px;
   border: 2px solid var(--clr-off-white-transparent);
   border-radius: 8px;
   background-color: transparent;
   cursor: pointer;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.1em;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -25,6 +28,7 @@
 
 .home-page button:hover {
   border-color: var(--clr-off-white);
+  background-color: var(--clr-button-secondary-hover);
 }
 
 .home-page h1 {
@@ -49,38 +53,22 @@
   }
 
   .home-page h1 {
-    font-size: 5rem;
-  }
-}
-
-@media (max-width: 780px) {
-  .home-page {
-    height: fit-content;
-    padding-block: 64px;
-    padding-inline: 10%;
-  }
-  .home-page h1 {
-    font-size: 3rem;
-  }
-
-  .home-page p {
-    font-size: 1rem;
-  }
-
-  .home-page button {
-    display: none;
+    font-size: 4rem;
   }
 }
 
 @media (max-width: 480px) {
-  .home-page {
-    padding-block: 32px;
+  .home-page__heading {
+    text-align: center;
+    align-items: center;
   }
 
   .home-page p {
+    font-size: 0.9rem;
     margin-bottom: 64px;
   }
+
   .home-page h1 {
-    font-size: 1.5rem;
+    font-size: 2.25rem;
   }
 }

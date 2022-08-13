@@ -1,10 +1,9 @@
 .recommendation-page__recommendations {
-  background-color: var(--clr-gray);
+  background-color: var(--clr-secondary);
 }
 
 .recommendation-page__heading {
   padding: 105px 175px;
-  border-top: 1px solid var(--clr-darker-gray);
 }
 
 @media (max-width: 920px) {
