@@ -1,6 +1,6 @@
 .home-page {
   height: 100vh;
-  padding-inline: 175px;
+  padding-inline: 10%;
 }
 
 .home-page h1 {
@@ -33,11 +33,12 @@
 
 .home-page h1 {
   margin-bottom: 16px;
+  font-size: clamp(1.777rem, 10vmin + 1rem, 6rem);
 }
 
 .home-page p {
-  font-size: 1.414rem;
-  margin-bottom: 128px;
+  font-size: calc(0.75vmin + 1rem);
+  margin-bottom: 10vmin;
 }
 
 .home-page__heading {
@@ -47,28 +48,9 @@
   height: inherit;
 }
 
-@media (max-width: 920px) {
-  .home-page {
-    padding-inline: 10%;
-  }
-
-  .home-page h1 {
-    font-size: 4rem;
-  }
-}
-
 @media (max-width: 480px) {
   .home-page__heading {
     text-align: center;
     align-items: center;
-  }
-
-  .home-page p {
-    font-size: 0.9rem;
-    margin-bottom: 64px;
-  }
-
-  .home-page h1 {
-    font-size: 2.25rem;
   }
 }

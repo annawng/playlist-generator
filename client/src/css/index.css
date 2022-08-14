@@ -12,5 +12,21 @@
   --clr-button-secondary: var(--clr-secondary);
   --clr-button-secondary-hover: hsla(215, 0%, 70%, 0.2);
 
+  --ff-primary: 'Heebo', sans-serif;
+
+  --section-spacing: 105px;
+
   font-size: 21px;
+}
+
+@media (max-width: 780px) {
+  :root {
+    --section-spacing: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-spacing: 32px;
+  }
 }

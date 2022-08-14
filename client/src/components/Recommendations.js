@@ -25,8 +25,12 @@ function Recommendations(props) {
   ));
 
   useEffect(() => {
-    setLoading(true);
-  }, [selected]);
+    if (recommendations.length !== 0) {
+      setLoading(true);
+    } else {
+      setLoading(false);
+    }
+  }, [selected, recommendations]);
 
   function containsAll() {
     return playlist.length === recommendations.length;

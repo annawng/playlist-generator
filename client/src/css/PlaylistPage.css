@@ -1,5 +1,5 @@
 .playlist-page {
-  padding: 105px 175px;
+  padding: var(--section-spacing) 10%;
 }
 
 .playlist-page h2 {
@@ -28,12 +28,8 @@
 }
 
 @media (max-width: 920px) {
-  .playlist-page {
-    padding-inline: 10%;
-  }
-
   .playlist-page h2 {
-    font-size: 2.827rem;
+    font-size: 2.25rem;
     margin-bottom: 24px;
   }
 
@@ -47,10 +43,6 @@
 }
 
 @media (max-width: 780px) {
-  .playlist-page {
-    padding-block: 64px;
-  }
-
   .playlist-page h2 {
     font-size: 1.777rem;
     margin-bottom: 8px;
@@ -76,10 +68,6 @@
 }
 
 @media (max-width: 480px) {
-  .playlist-page {
-    padding-block: 32px;
-  }
-
   .playlist-page h2 {
     font-size: 1rem;
     margin-bottom: 0;

@@ -2,7 +2,7 @@
 .playlist td {
   color: var(--clr-off-white);
   border-color: var(--clr-accent);
-  font-family: 'Heebo', sans-serif;
+  font-family: var(--ff-primary);
   font-weight: 300;
 }
 

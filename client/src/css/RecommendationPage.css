@@ -3,23 +3,5 @@
 }
 
 .recommendation-page__heading {
-  padding: 105px 175px;
-}
-
-@media (max-width: 920px) {
-  .recommendation-page__heading {
-    padding-inline: 10%;
-  }
-}
-
-@media (max-width: 780px) {
-  .recommendation-page__heading {
-    padding-block: 64px;
-  }
-}
-
-@media (max-width: 480px) {
-  .recommendation-page__heading {
-    padding-block: 32px;
-  }
+  padding: var(--section-spacing) 10%;
 }

@@ -10,6 +10,7 @@ function SearchPage(props, ref) {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState('');
   const [resultsVisible, setResultsVisible] = useState('');
+  const [searchPageClass, setSearchPageClass] = useState('search-page');
 
   // useEffect(() => {
   //   const res = window.sessionStorage.getItem('results');
@@ -51,8 +52,10 @@ function SearchPage(props, ref) {
     }
 
     let timer = setTimeout(() => {
-      if (query) {
+      if (query.trim()) {
         getResults(query);
+      } else {
+        setResults('');
       }
     }, 500);
 
@@ -60,20 +63,24 @@ function SearchPage(props, ref) {
   }, [query, token]);
 
   return (
-    <section className='search-page' ref={ref}>
+    <section className={searchPageClass} ref={ref}>
       <h4>Step One</h4>
       <p>Find a song you want your recommendations to be based on.</p>
       <SearchBar
         resultsVisible={resultsVisible}
         search={(text) => {
-          if (text.trim()) {
-            setQuery(text);
-          } else {
-            setResults('');
-          }
+          setQuery(text);
         }}
       />
-      {results && <Results results={results} handleOnClick={handleOnClick} />}
+      {results && (
+        <Results
+          results={results}
+          handleOnClick={(selected) => {
+            handleOnClick(selected);
+            setSearchPageClass('search-page fit-content');
+          }}
+        />
+      )}
     </section>
   );
 }

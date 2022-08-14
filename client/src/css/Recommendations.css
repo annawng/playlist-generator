@@ -113,10 +113,10 @@
 
 @media (max-width: 920px) {
   .recommendations__heading h3 {
-    font-size: 1.5rem;
+    font-size: 1.414rem;
   }
   .recommendations__heading button {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .recommendations__songs .song img {

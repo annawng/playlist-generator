@@ -5,6 +5,7 @@
 
 .results > p {
   margin-top: 16px;
+  color: var(--clr-accent);
 }
 
 .results .song {

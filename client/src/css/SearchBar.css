@@ -29,6 +29,12 @@
   margin-left: 5px;
 }
 
+@media (max-width: 920px) {
+  .search-bar input {
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 480px) {
   .search-bar input {
     font-size: 0.707rem;

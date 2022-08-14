@@ -12,7 +12,7 @@ h4,
 p,
 button,
 input {
-  font-family: 'Heebo', sans-serif;
+  font-family: var(--ff-primary);
   margin: 0px;
 }
 
@@ -40,8 +40,14 @@ h4 {
 }
 
 h4 + p {
-  font-size: 1.5rem;
+  font-size: 1.414rem;
   color: var(--clr-secondary);
+}
+
+@media (max-width: 920px) {
+  h4 + p {
+    font-size: 1.125rem;
+  }
 }
 
 @media (max-width: 780px) {
