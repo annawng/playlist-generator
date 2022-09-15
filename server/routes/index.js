@@ -1,19 +1,16 @@
-require('dotenv').config({ path: '../.env' });
-
 const SpotifyWebApi = require('spotify-web-api-node');
-const express = require('express');
-
-const router = express.Router();
-
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.SECRET_KEY;
-const redirectUri = process.env.REDIRECT_URI;
-const clientUri = process.env.CLIENT_URI;
+const router = require('express').Router();
+const {
+  CLIENT_ID,
+  SECRET_KEY,
+  REDIRECT_URI,
+  CLIENT_URI,
+} = require('../utils/config');
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: clientId,
-  clientSecret: clientSecret,
-  redirectUri: redirectUri,
+  clientId: CLIENT_ID,
+  clientSecret: SECRET_KEY,
+  redirectUri: REDIRECT_URI,
 });
 
 let playlist, selected;
@@ -72,7 +69,7 @@ router.get('/refresh_token', function (req, res) {
 async function exportPlaylist(req, res) {
   const playlistUri = await createPlaylist();
   addToPlaylist(playlistUri.split(':')[2]);
-  res.redirect(clientUri);
+  res.redirect(CLIENT_URI);
 }
 
 const createPlaylist = async () => {

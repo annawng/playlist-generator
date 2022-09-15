@@ -17,7 +17,6 @@ function App() {
 
   const updateSelected = async (selected) => {
     setSelected(selected);
-    // window.sessionStorage.setItem('selected', JSON.stringify(selected));
     if (selected) {
       await fetch(`${SERVER}/selected`, {
         headers: {
@@ -32,7 +31,6 @@ function App() {
 
   const updatePlaylist = async (playlist) => {
     setPlaylist(playlist);
-    // window.sessionStorage.setItem('playlist', JSON.stringify(playlist));
     const uris = playlist.map((song) => song.uri);
     await fetch(`${SERVER}/playlist`, {
       headers: {
@@ -45,16 +43,6 @@ function App() {
   };
 
   useEffect(() => {
-    // const sel = window.sessionStorage.getItem('selected');
-    // if (sel) {
-    //   setSelected(JSON.parse(sel));
-    // }
-
-    // const pl = window.sessionStorage.getItem('playlist');
-    // if (pl) {
-    //   setPlaylist(JSON.parse(pl));
-    // }
-
     const load = async () => {
       try {
         const res = await fetch(`${SERVER}/token`);

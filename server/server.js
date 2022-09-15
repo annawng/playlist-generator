@@ -1,17 +1,12 @@
-require('dotenv').config({ path: '../.env' });
-
 const express = require('express');
+const app = express();
 const cors = require('cors');
 const index = require('./routes/index');
-
-const app = express();
-
-const port = process.env.PORT;
-const site = process.env.CLIENT_URI;
+const { PORT, CLIENT_URI } = require('./utils/config');
 
 app.use(
   cors({
-    origin: site,
+    origin: CLIENT_URI,
   })
 );
 app.use(express.json());
@@ -19,6 +14,6 @@ app.use(express.urlencoded());
 
 app.use('/', index);
 
-app.listen(port, () => {
-  console.log(`Listening on ${port}`);
+app.listen(PORT, () => {
+  console.log(`Listening on ${PORT}`);
 });

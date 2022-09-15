@@ -12,15 +12,7 @@ function SearchPage(props, ref) {
   const [resultsVisible, setResultsVisible] = useState('');
   const [searchPageClass, setSearchPageClass] = useState('search-page');
 
-  // useEffect(() => {
-  //   const res = window.sessionStorage.getItem('results');
-  //   if (res) {
-  //     setResults(JSON.parse(res));
-  //   }
-  // }, []);
-
   useEffect(() => {
-    // window.sessionStorage.setItem('results', JSON.stringify(results));
     results.length !== 0
       ? setResultsVisible('results-visible')
       : setResultsVisible('');
