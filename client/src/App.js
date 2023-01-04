@@ -13,7 +13,7 @@ function App() {
 
   const searchPageRef = useRef(null);
 
-  const SERVER = 'https://generate-spotify-playlists.herokuapp.com';
+  const SERVER = 'https://playlistgenerator.onrender.com';
 
   const updateSelected = async (selected) => {
     setSelected(selected);

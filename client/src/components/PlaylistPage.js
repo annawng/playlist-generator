@@ -3,7 +3,7 @@ import Playlist from './Playlist';
 import '../css/PlaylistPage.css';
 
 const clientId = 'e0d4309aea4e4591a6a533ba32c1c836';
-const redirectUri = 'https://generate-spotify-playlists.herokuapp.com/callback';
+const redirectUri = 'https://playlistgenerator.onrender.com/callback';
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 const responseType = 'code';
 const scope = 'playlist-modify-private';
